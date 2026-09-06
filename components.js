@@ -89,6 +89,7 @@ function renderStars(count = 5) {
 function logoHTML() {
   return `<a href="/" class="logo-link">
     <img src="/public/brand/aw-fencing-logo.png" alt="${CONFIG.businessName}" class="site-logo-img" />
+    <span class="site-logo-name">${CONFIG.businessName}</span>
   </a>`;
 }
 
