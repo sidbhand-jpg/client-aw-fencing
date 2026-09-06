@@ -838,13 +838,23 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   border-radius: calc(var(--radius-2xl) + 0.25rem);
 }
 .portfolio-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.portfolio-gallery .portfolio-grid {
+  display: flex;
   transition: transform 0.45s ease;
   will-change: transform;
   touch-action: pan-y;
 }
-.portfolio-grid.is-dragging {
+.portfolio-gallery .portfolio-grid.is-dragging {
   transition: none;
   cursor: grabbing;
 }
@@ -871,7 +881,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .portfolio-img-btn {
   display: flex;
   width: 100%;
-  min-height: var(--gallery-card-min-height);
+  min-height: var(--gallery-card-min-height, 16rem);
   border: 1px solid var(--color-slate-200);
   background: var(--color-secondary);
   cursor: pointer;

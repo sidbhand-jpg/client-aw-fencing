@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('portfolio-grid').innerHTML = projects.map((p, i) => `
       <div class="portfolio-item" data-category="${p.category}">
         <button class="portfolio-img-btn" data-img="${p.img}" data-title="${p.title}" data-cat="${p.category}" aria-label="Open ${p.title}">
-          <img src="${p.img}" alt="${p.alt}" width="${p.width}" height="${p.height}" class="portfolio-img" loading="${i < 6 ? 'eager' : 'lazy'}" />
+          <img src="${p.img}" alt="${p.alt}" width="${p.width}" height="${p.height}" class="portfolio-img" loading="${i < 3 ? 'eager' : 'lazy'}" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" />
           <div class="portfolio-overlay">
             <div class="portfolio-overlay-inner">
               <div class="portfolio-cat-badge">${p.category}</div>
