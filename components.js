@@ -88,14 +88,7 @@ function renderStars(count = 5) {
 // ── Logo SVG ─────────────────────────────────────────────────
 function logoHTML() {
   return `<a href="/" class="logo-link">
-    <span class="logo-icon">
-      <svg viewBox="0 0 24 24" fill="none" class="logo-svg">
-        <rect x="3" y="14" width="18" height="3" rx="1" fill="currentColor" opacity="0.5"/>
-        <rect x="3" y="10" width="18" height="3" rx="1" fill="currentColor" opacity="0.75"/>
-        <rect x="3" y="6" width="18" height="3" rx="1" fill="currentColor"/>
-      </svg>
-    </span>
-    <span class="logo-text">${CONFIG.businessName}</span>
+    <img src="/public/brand/aw-fencing-logo.png" alt="${CONFIG.businessName}" class="site-logo-img" />
   </a>`;
 }
 
@@ -312,7 +305,9 @@ function renderFooter() {
 
       <!-- Brand column -->
       <div class="footer-brand">
-        <div class="footer-biz-name">${CONFIG.businessName}</div>
+        <a href="/" class="footer-logo-link" aria-label="${CONFIG.businessName} home">
+          <img src="/public/brand/aw-fencing-logo.png" alt="${CONFIG.businessName}" class="footer-logo-img" loading="lazy" />
+        </a>
         <p class="footer-tagline">${CONFIG.tagline}</p>
         <div class="footer-contact-list">
           <a href="tel:${CONFIG.phoneRaw}" class="footer-contact-item">

@@ -25,7 +25,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/public/brand/aw-fencing-logo.png" />
   <title>YOUR BUSINESS NAME | Professional Home Services</title>
   <meta name="description" content="Professional local home services with clear estimates, dependable scheduling, and respectful workmanship." />
   <meta name="author" content="YOUR BUSINESS NAME" />
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('areas-map').innerHTML = mapEmbedHTML();
   document.getElementById('areas-chips').innerHTML = CONFIG.serviceAreas.map(a => `
-    <a href="/${a.slug}.html" class="area-chip">
+    <a href="/cities/${a.slug}.html" class="area-chip">
       ${a.name}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><polyline points="9 18 15 12 9 6"/></svg>
     </a>`).join('');
