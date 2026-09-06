@@ -589,6 +589,8 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   line-height: 1.1;
 }
 .section-subtitle { margin-top: 1rem; font-size: 1.125rem; line-height: 1.6; }
+.bg-secondary .section-title { color: #fff; }
+.bg-secondary .section-subtitle { color: rgba(255,255,255,0.8); }
 
 /* ============================================================
    TRUST BAR

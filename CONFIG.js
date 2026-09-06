@@ -138,7 +138,7 @@ const CONFIG = {
         { q: "How long does residential fence installation take?", a: "The duration depends on the fence length, material, and site conditions, but most residential projects are completed within a few days to a week." },
         { q: "Do I need a permit for a residential fence in Cherryville?", a: "Permit requirements vary by location and fence height. We can help guide you through the local regulations in Cherryville and surrounding areas." }
       ],
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1000&q=80&auto=format&fit=crop",
+      image: "/public/services/residential-fence-installation.jpg",
     },
     {
       slug: "commercial-fence-installation",
@@ -151,7 +151,7 @@ const CONFIG = {
         { q: "Can you install fencing for large commercial properties?", a: "Yes, our team is equipped to handle commercial fencing projects of all sizes, from small businesses to large industrial complexes." },
         { q: "What materials are best for commercial security fences?", a: "Heavy-gauge chain link, ornamental steel/iron, and high-security mesh are popular choices for their durability and security features." }
       ],
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1000&q=80&auto=format&fit=crop",
+      image: "/public/services/commercial-fence-installation.jpg",
     },
     {
       slug: "custom-gates-access-control",
@@ -164,7 +164,7 @@ const CONFIG = {
         { q: "Can automatic gates be integrated with existing security systems?", a: "Yes, we can integrate new gate automation with your existing security cameras, intercoms, and smart home or business systems." },
         { q: "What happens if there's a power outage?", a: "Most automatic gate systems come with a battery backup or a manual override option to ensure access during power interruptions." }
       ],
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1000&q=80&auto=format&fit=crop",
+      image: "/public/services/custom-gates-access-control.jpg",
     },
     {
       slug: "farm-agricultural-fencing",
@@ -177,7 +177,7 @@ const CONFIG = {
         { q: "Can you install fencing for large acreage?", a: "Yes, we have experience installing agricultural fencing across extensive acreage, efficiently and effectively." },
         { q: "Do you offer repair services for farm fences?", a: "Absolutely. We provide repair services to maintain the integrity and functionality of your existing farm and agricultural fences." }
       ],
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1000&q=80&auto=format&fit=crop",
+      image: "/public/services/farm-agricultural-fencing.jpg",
     },
   ],
   serviceAreaGroups: SERVICE_AREA_GROUPS,
