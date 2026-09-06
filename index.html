@@ -572,11 +572,20 @@ document.addEventListener('DOMContentLoaded', () => {
     subtitle: 'Local crews, no travel fees, fast scheduling within our service zone.'
   });
   document.getElementById('areas-map').innerHTML = mapEmbedHTML();
-  document.getElementById('areas-chips').innerHTML = CONFIG.serviceAreas.map(a => `
-    <a href="/cities/${a.slug}.html" class="area-chip">
-      ${a.name}
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><polyline points="9 18 15 12 9 6"/></svg>
-    </a>`).join('');
+  document.getElementById('areas-chips').innerHTML = CONFIG.serviceAreaGroups.map(group => {
+    const majorAreas = group.areas.filter(area => group.homeAreas.includes(area.slug));
+    return `
+      <section class="home-county-group">
+        <h3 class="home-county-title">${group.county}</h3>
+        <div class="home-county-pills">
+          ${majorAreas.map(a => `
+            <a href="/cities/${a.slug}.html" class="area-chip">
+              ${a.name}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>`).join('')}
+        </div>
+      </section>`;
+  }).join('');
 
   // FAQs
   document.getElementById('faq-section-header').innerHTML = sectionHeaderHTML({
@@ -728,8 +737,8 @@ document.addEventListener('DOMContentLoaded', () => {
     align-items: flex-start;
     gap: 3rem;
   }
-  .areas-map-col  { flex: 1; min-width: 0; }
-  .areas-chips-col { width: 22rem; flex-shrink: 0; }
+  .areas-map-col,
+  .areas-chips-col { flex: 1; min-width: 0; }
 }
 /* Override iframe height to respect CONFIG.maps.mapHeight at runtime;
    the style attr on the iframe handles the actual height. */
@@ -737,17 +746,29 @@ document.addEventListener('DOMContentLoaded', () => {
 .areas-map-col .map-iframe { width: 100%; display: block; border: none; }
 
 /* Service areas chips */
-.areas-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.areas-chips { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) {
+  .areas-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.home-county-group { min-width: 0; }
+.home-county-title {
+  margin-bottom: 0.6rem;
+  color: var(--color-secondary);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.home-county-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .area-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.5rem 0.85rem;
   border-radius: 9999px;
   border: 2px solid var(--color-slate-200);
   color: var(--color-navy);
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: 0.82rem;
   text-decoration: none;
   transition: border-color 0.15s, color 0.15s;
 }

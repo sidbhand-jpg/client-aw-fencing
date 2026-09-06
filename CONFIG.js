@@ -1,6 +1,7 @@
 const SERVICE_AREA_GROUPS = [
   {
     county: "Iredell County",
+    homeAreas: ["statesville", "mooresville", "troutman"],
     areas: [
       { slug: "statesville", name: "Statesville" },
       { slug: "mooresville", name: "Mooresville" },
@@ -12,6 +13,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Mecklenburg County",
+    homeAreas: ["charlotte", "cornelius", "huntersville", "matthews"],
     areas: [
       { slug: "charlotte", name: "Charlotte" },
       { slug: "cornelius", name: "Cornelius" },
@@ -25,6 +27,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Gaston County",
+    homeAreas: ["gastonia", "belmont", "kings-mountain", "mount-holly"],
     areas: [
       { slug: "gastonia", name: "Gastonia" },
       { slug: "belmont", name: "Belmont" },
@@ -43,6 +46,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Lincoln County",
+    homeAreas: ["lincolnton", "denver"],
     areas: [
       { slug: "lincolnton", name: "Lincolnton" },
       { slug: "denver", name: "Denver" },
@@ -55,6 +59,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Rowan County",
+    homeAreas: ["salisbury", "kannapolis"],
     areas: [
       { slug: "salisbury", name: "Salisbury" },
       { slug: "kannapolis", name: "Kannapolis" },
@@ -71,6 +76,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Cabarrus County",
+    homeAreas: ["concord", "kannapolis", "harrisburg"],
     areas: [
       { slug: "concord", name: "Concord" },
       { slug: "kannapolis", name: "Kannapolis" },
@@ -82,6 +88,7 @@ const SERVICE_AREA_GROUPS = [
   },
   {
     county: "Catawba County",
+    homeAreas: ["hickory", "newton", "conover"],
     areas: [
       { slug: "hickory", name: "Hickory" },
       { slug: "newton", name: "Newton" },
