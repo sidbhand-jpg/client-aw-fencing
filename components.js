@@ -107,14 +107,24 @@ function renderHeader() {
       <div class="dropdown-item-desc">${s.desc}</div>
     </a>`).join('');
 
-  const areasDropdown = CONFIG.serviceAreas.map(a => `
-    <a href="/${a.slug}.html" class="area-pill">${a.name}</a>`).join('');
+  const areasDropdown = CONFIG.serviceAreaGroups.map(group => `
+    <section class="area-county-group">
+      <div class="area-county-title">${group.county}</div>
+      <div class="area-county-links">
+        ${group.areas.map(a => `<a href="/cities/${a.slug}.html" class="area-link">${a.name}</a>`).join('')}
+      </div>
+    </section>`).join('');
 
   const mobileServiceLinks = CONFIG.services.map(s => `
     <a href="/services/${s.slug}.html" class="mobile-sub-link">${s.name}</a>`).join('');
 
-  const mobileAreaLinks = CONFIG.serviceAreas.map(a => `
-    <a href="/${a.slug}.html" class="mobile-area-pill">${a.name}</a>`).join('');
+  const mobileAreaLinks = CONFIG.serviceAreaGroups.map(group => `
+    <section class="mobile-area-county-group">
+      <div class="mobile-area-county-title">${group.county}</div>
+      <div class="mobile-area-county-links">
+        ${group.areas.map(a => `<a href="/cities/${a.slug}.html" class="mobile-area-link">${a.name}</a>`).join('')}
+      </div>
+    </section>`).join('');
 
   const html = `
   <header class="site-header" id="site-header">
@@ -141,7 +151,7 @@ function renderHeader() {
             <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="dropdown-panel areas-panel" id="areas-panel">
-            <div class="areas-pills">${areasDropdown}</div>
+            <div class="areas-groups">${areasDropdown}</div>
           </div>
         </div>
 
@@ -184,7 +194,7 @@ function renderHeader() {
           <svg class="chevron-icon" id="mobile-areas-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-acc-panel" id="mobile-areas-panel" style="display:none">
-          <div class="mobile-area-pills">${mobileAreaLinks}</div>
+          <div class="mobile-area-groups">${mobileAreaLinks}</div>
         </div>
 
         <a href="/our-work.html" class="mobile-nav-link border-top">Our Work</a>
@@ -269,8 +279,13 @@ function renderFooter() {
   const serviceLinks = CONFIG.services.map(s =>
     `<li><a href="/services/${s.slug}.html">${s.name}</a></li>`).join('');
 
-  const areaLinks = CONFIG.serviceAreas.map(a =>
-    `<a href="/${a.slug}.html" class="area-pill-sm">${a.name}</a>`).join('');
+  const areaLinks = CONFIG.serviceAreaGroups.map(group => `
+    <section class="footer-area-county-group">
+      <div class="footer-area-county-title">${group.county}</div>
+      <div class="footer-area-county-links">
+        ${group.areas.map(a => `<a href="/cities/${a.slug}.html" class="footer-area-link">${a.name}</a>`).join('')}
+      </div>
+    </section>`).join('');
 
   // Social icons — only render if URL is set
   const SOCIAL_ICONS = {
@@ -323,9 +338,9 @@ function renderFooter() {
       </div>
 
       <!-- Service Areas column -->
-      <div class="footer-col">
+      <div class="footer-col footer-areas-col">
         <div class="footer-col-title">Service Areas</div>
-        <div class="footer-area-pills">${areaLinks}</div>
+        <div class="footer-area-groups">${areaLinks}</div>
         <div class="footer-license">
           <div>License #${CONFIG.licenseNumber}</div>
           <div>Licensed &amp; Insured in ${CONFIG.state}</div>
