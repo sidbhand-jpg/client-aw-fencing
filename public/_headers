@@ -11,10 +11,10 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /styles.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 /CONFIG.js
   Cache-Control: public, max-age=0, must-revalidate
 
 /components.js
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
