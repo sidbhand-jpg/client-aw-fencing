@@ -135,6 +135,32 @@
   <div class="container-wide">
     <div id="services-section-header"></div>
     <div class="services-grid-home" id="services-grid"></div>
+    <div class="fence-types-home">
+      <div class="fence-types-heading">
+        <p class="fence-types-eyebrow">FENCE INSTALLATION OPTIONS</p>
+        <h3>Find the right fence for your property</h3>
+        <p>Compare the look and purpose of common fence materials. We can discuss the layout, gates, and upkeep that fit your project.</p>
+      </div>
+      <div class="fence-types-grid">
+        <a class="fence-type-card" href="/services/residential-fence-installation.html">
+          <img src="/public/projects/board-on-board-privacy-fence.jpg" alt="Wood privacy fence on a residential property" loading="lazy" />
+          <div class="fence-type-card-body"><h4>Wood fencing</h4><p>Privacy, shadowbox, and horizontal styles with a natural finish.</p><span>Explore wood options <span aria-hidden="true">→</span></span></div>
+        </a>
+        <a class="fence-type-card" href="/services/residential-fence-installation.html">
+          <img src="/public/materials/vinyl-privacy-fence.jpg" alt="Example of a white vinyl privacy fence" loading="lazy" />
+          <div class="fence-type-card-body"><h4>Vinyl fencing</h4><p>A clean privacy look with less routine finish upkeep than wood.</p><span>Explore vinyl options <span aria-hidden="true">→</span></span></div>
+        </a>
+        <a class="fence-type-card" href="/services/residential-fence-installation.html">
+          <img src="/public/materials/aluminum-picket-fence.jpg" alt="Example of a black aluminum picket fence" loading="lazy" />
+          <div class="fence-type-card-body"><h4>Aluminum fencing</h4><p>Open sightlines and a defined boundary for yards and entries.</p><span>Explore aluminum options <span aria-hidden="true">→</span></span></div>
+        </a>
+        <a class="fence-type-card" href="/services/commercial-fence-installation.html">
+          <img src="/public/services/commercial-perimeter-fence.jpg" alt="Example of a commercial chain-link perimeter fence" loading="lazy" />
+          <div class="fence-type-card-body"><h4>Chain-link fencing</h4><p>A practical perimeter option where visibility and access matter.</p><span>Explore chain-link options <span aria-hidden="true">→</span></span></div>
+        </a>
+      </div>
+      <p class="fence-types-note">Material examples are illustrative. See <a href="/our-work.html">our project gallery</a> for A&amp;W Fencing work.</p>
+    </div>
   </div>
 </section>
 
@@ -350,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let suppressClick = false;
 
     const getItemsPerSlide = () => {
-      if (window.innerWidth >= 1024) return 4;
+      if (window.innerWidth >= 1024) return 3;
       if (window.innerWidth >= 640) return 2;
       return 1;
     };
@@ -365,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
             height="${project.height}"
             class="portfolio-img"
             loading="${index < eagerCount ? 'eager' : 'lazy'}"
-            sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 90vw"
+            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 90vw"
             draggable="false"
           />
           <span class="portfolio-overlay">
@@ -415,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       currentIndex = Math.min(currentIndex, slides.length - 1);
       track.innerHTML = slides.map((slide, slideIndex) => `
-        <div class="portfolio-slide" data-slide-index="${slideIndex}">
+        <div class="portfolio-slide${slide.length < itemsPerSlide ? ' is-partial' : ''}" data-slide-index="${slideIndex}">
           ${slide.map((project, itemIndex) => buildCard(project, slideIndex * itemsPerSlide + itemIndex, eagerCount)).join('')}
         </div>
       `).join('');
@@ -606,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
   overflow: hidden;
 }
 .hero-bg { position: absolute; inset: 0; }
-.hero-bg-img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg-img { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
 .hero-bg-gradient {
   position: absolute;
   inset: 0;
@@ -624,7 +650,8 @@ document.addEventListener('DOMContentLoaded', () => {
 @media (min-width: 1024px) {
   .hero-inner { flex-direction: row; align-items: center; gap: 4rem; }
 }
-.hero-copy { flex: 1; color: #fff; max-width: 42rem; }
+.hero-copy { flex: 1; color: #fff; max-width: 31rem; }
+@media (max-width: 639px) { .hero-bg-img { object-position: 90% center; } }
 .hero-proof-pill {
   display: inline-flex;
   align-items: center;
@@ -694,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Services grid */
 .services-grid-home { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 @media (min-width: 640px) { .services-grid-home { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services-grid-home { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .services-grid-home { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* Recent Work (home page gallery teaser) */
 .recent-work-cta-row { display: flex; justify-content: center; margin-top: 2.5rem; }

@@ -36,9 +36,9 @@
   <meta property="og:title" content="Commercial Fence Installation in Charlotte, NC | A&amp;W Fencing" />
   <meta property="og:description" content="Professional-grade perimeter solutions designed to protect business properties and assets effectively. A&amp;W Fencing serves Charlotte and surrounding communities. Request a free estimate." />
   <meta property="og:url" content="https://aw-fencing.com/services/commercial-fence-installation.html" />
-  <meta property="og:image" content="https://aw-fencing.com/public/services/commercial-fence-installation.jpg" />
+  <meta property="og:image" content="https://aw-fencing.com/public/services/commercial-perimeter-fence.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://aw-fencing.com/public/services/commercial-fence-installation.jpg" />
+  <meta name="twitter:image" content="https://aw-fencing.com/public/services/commercial-perimeter-fence.jpg" />
   <meta name="twitter:title" content="Commercial Fence Installation in Charlotte, NC | A&amp;W Fencing" />
   <meta name="twitter:description" content="Professional-grade perimeter solutions designed to protect business properties and assets effectively. A&amp;W Fencing serves Charlotte and surrounding communities. Request a free estimate." />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Commercial Fence Installation","serviceType":"Commercial Fence Installation","provider":{"@id":"https://aw-fencing.com/#business"},"areaServed":{"@type":"City","name":"Charlotte"}}</script>
@@ -50,7 +50,7 @@
 <!-- ── SERVICE HERO ──────────────────────────────────────────── -->
 <section class="service-hero" id="service-hero">
   <div class="service-hero-bg">
-    <img id="service-hero-img" src="/public/services/commercial-fence-installation.jpg" alt="Commercial Fence Installation fence project" class="service-hero-img" />
+    <img id="service-hero-img" src="/public/services/commercial-perimeter-fence.jpg" alt="Illustrative chain-link fence and gate at a commercial property" class="service-hero-img" />
     <div class="service-hero-gradient"></div>
   </div>
   <div class="container-wide service-hero-inner">
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hero
   document.getElementById('service-hero-img').src = service.image;
-  document.getElementById('service-hero-img').alt = service.name;
+  document.getElementById('service-hero-img').alt = service.imageAlt || service.name;
   document.getElementById('service-title').textContent = service.name;
   document.getElementById('service-desc').textContent = service.desc;
 

@@ -626,7 +626,7 @@ function serviceCardHTML(service) {
   return `
   <a href="/services/${service.slug}.html" class="service-card">
     <div class="service-card-img-wrap">
-      <img src="${service.image}" alt="${service.name}" class="service-card-img" loading="lazy" />
+      <img src="${service.image}" alt="${service.imageAlt || service.name}" class="service-card-img" loading="lazy" />
       <div class="service-card-overlay"></div>
     </div>
     <div class="service-card-body">

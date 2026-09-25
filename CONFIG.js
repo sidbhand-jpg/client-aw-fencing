@@ -151,7 +151,8 @@ const CONFIG = {
         { q: "How long does residential fence installation take?", a: "Timing depends on the length, material, gates, site conditions, weather, and any approvals. We discuss a project-specific timeline after reviewing the property." },
         { q: "Do I need approval for a residential fence in Charlotte?", a: "Requirements depend on the parcel and fence location. Charlotte requires a no-cost fence and wall certificate for fences along city-maintained streets or sidewalks. Check the applicable local rules and any HOA requirements before work begins." }
       ],
-      image: "/public/services/residential-fence-installation.jpg",
+      image: "/public/projects/wood-privacy-fence-gate.jpg",
+      imageAlt: "Wood privacy fence and gate on a residential property",
     },
     {
       slug: "commercial-fence-installation",
@@ -164,7 +165,8 @@ const CONFIG = {
         { q: "Can you discuss a larger commercial fence project?", a: "Yes. Share the site address, perimeter, access points, and security needs so the team can assess the scope and confirm availability." },
         { q: "What materials are best for commercial security fences?", a: "Heavy-gauge chain link, ornamental steel/iron, and high-security mesh are popular choices for their durability and security features." }
       ],
-      image: "/public/services/commercial-fence-installation.jpg",
+      image: "/public/services/commercial-perimeter-fence.jpg",
+      imageAlt: "Illustrative chain-link fence and gate at a commercial property",
     },
     {
       slug: "custom-gates-access-control",
@@ -177,7 +179,8 @@ const CONFIG = {
         { q: "What access controls can a gate include?", a: "Depending on the selected equipment, options can include remotes, keypads, card readers, smartphone controls, and safety sensors." },
         { q: "What happens if there's a power outage?", a: "Some gate operators offer battery backup or a manual release. Confirm the exact operation and backup capability for the proposed system." }
       ],
-      image: "/public/services/custom-gates-access-control.jpg",
+      image: "/public/services/custom-driveway-gate.jpg",
+      imageAlt: "Illustrative driveway gate with a keypad entry point",
     },
     {
       slug: "farm-agricultural-fencing",
@@ -190,7 +193,8 @@ const CONFIG = {
         { q: "Can you assess fencing for larger acreage?", a: "Yes. Share the property address, approximate acreage, livestock type, and required gates so the team can assess the layout and confirm the scope." },
         { q: "Do you offer repair services for farm fences?", a: "Absolutely. We provide repair services to maintain the integrity and functionality of your existing farm and agricultural fences." }
       ],
-      image: "/public/services/farm-agricultural-fencing.jpg",
+      image: "/public/services/farm-woven-wire-fence.jpg",
+      imageAlt: "Illustrative woven-wire fence and field gate on rural land",
     },
   ],
   serviceAreaGroups: SERVICE_AREA_GROUPS,

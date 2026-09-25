@@ -107,7 +107,7 @@ function servicePage(html, service) {
   const benefits = service.benefits.map(item => `<li class="service-benefit-item"><svg class="benefit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>${escapeHtml(item)}</span></li>`).join('');
   const faqs = `<div class="faq-list">${service.faqs.map((item, i) => `<details class="faq-item" id="faq-service-faq-container-${i}"><summary class="faq-summary"><span>${escapeHtml(item.q)}</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary><p class="faq-answer">${escapeHtml(item.a)}</p></details>`).join('')}</div>`;
   const slots = {
-    '<img id="service-hero-img" src="" alt=""': `<img id="service-hero-img" src="${escapeHtml(service.image)}" alt="${escapeHtml(service.name)} fence project"`,
+    '<img id="service-hero-img" src="" alt=""': `<img id="service-hero-img" src="${escapeHtml(service.image)}" alt="${escapeHtml(service.imageAlt || service.name)}"`,
     '<h1 class="service-hero-title" id="service-title"></h1>': `<h1 class="service-hero-title" id="service-title">${escapeHtml(service.name)}</h1>`,
     '<p class="service-hero-desc" id="service-desc"></p>': `<p class="service-hero-desc" id="service-desc">${escapeHtml(service.desc)}</p>`,
     '<p class="service-longdesc" id="service-longdesc"></p>': `<p class="service-longdesc" id="service-longdesc">${escapeHtml(service.longDesc)}</p>`,

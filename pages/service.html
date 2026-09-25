@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hero
   document.getElementById('service-hero-img').src = service.image;
-  document.getElementById('service-hero-img').alt = service.name;
+  document.getElementById('service-hero-img').alt = service.imageAlt || service.name;
   document.getElementById('service-title').textContent = service.name;
   document.getElementById('service-desc').textContent = service.desc;
 
