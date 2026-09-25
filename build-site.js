@@ -19,7 +19,7 @@ const config = context.CONFIG;
 const routes = [
   'index.html', 'about.html', 'contact.html', 'our-work.html', 'privacy-policy.html', 'terms.html', '404.html',
   'CONFIG.js', 'PROJECTS.js', 'components.js', 'generic-runtime.js', 'styles.css', 'favicon.svg',
-  'sitemap.xml', 'robots.txt', 'llms.txt',
+  'sitemap.xml', 'robots.txt', 'llms.txt', '6112ad897936bcb74b5c87fdecfe160e.txt',
   ...config.services.map(service => `services/${service.slug}.html`),
   ...config.serviceAreas.map(area => `cities/${area.slug}.html`),
 ];
