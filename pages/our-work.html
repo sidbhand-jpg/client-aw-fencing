@@ -70,7 +70,7 @@
 </section>
 
 <!-- ── SOCIAL PROOF STRIP ─────────────────────────────────────── -->
-<section class="section-y bg-white">
+<section class="section-y bg-white" id="portfolio-proof-section" hidden>
   <div class="container-wide">
     <div id="portfolio-proof-header"></div>
     <div class="portfolio-reviews-row" id="portfolio-reviews-row"></div>
@@ -91,7 +91,7 @@
 </div><script src="components.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.title = `Our Work | Portfolio | ${CONFIG.businessName}`;
+  document.title = `Fence & Gate Project Gallery | ${CONFIG.businessName}`;
 
   // Build unique category list
   const cats = [...new Set(PROJECTS.map(p => p.category))];
@@ -177,11 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
   // Reviews strip
+  const verifiedTestimonials = CONFIG.testimonials.filter(t => t.name && t.text && t.stars && t.city);
+  document.getElementById('portfolio-proof-section').hidden = verifiedTestimonials.length === 0;
   document.getElementById('portfolio-proof-header').innerHTML = sectionHeaderHTML({
     eyebrow: 'What Customers Say',
-    title: 'Real Reviews from Real Projects'
+    title: 'Project Feedback'
   });
-  document.getElementById('portfolio-reviews-row').innerHTML = CONFIG.testimonials.slice(0, 3).map(t => `
+  document.getElementById('portfolio-reviews-row').innerHTML = verifiedTestimonials.slice(0, 3).map(t => `
     <div class="portfolio-review-card">
       <div class="stars">${renderStars(t.stars)}</div>
       <p class="portfolio-review-text">"${t.text}"</p>

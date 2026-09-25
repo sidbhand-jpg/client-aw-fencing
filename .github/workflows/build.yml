@@ -4,6 +4,10 @@ on:
   push:
     paths:
       - 'CONFIG.js'
+      - 'PROJECTS.js'
+      - 'city-content.js'
+      - 'generate-pages.js'
+      - 'pages/**'
 
 jobs:
   build:
@@ -30,6 +34,6 @@ jobs:
         run: |
           git config user.email "bot@houzflow.com"
           git config user.name "Houzflow Bot"
-          git add services/ cities/ about.html contact.html our-work.html privacy-policy.html terms.html 404.html
+          git add services/ cities/ about.html contact.html our-work.html privacy-policy.html terms.html 404.html index.html sitemap.xml robots.txt llms.txt
           git diff --staged --quiet || git commit -m "Auto-build: generate pages from CONFIG.js"
           git push

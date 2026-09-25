@@ -1,4 +1,14 @@
-# Houzflow Epoxy Website — HTML/CSS/JS Template
+# A&W Fencing Website
+
+## A&W Fencing site status
+
+This client version uses the shared chat widget as its only estimate request form. The homepage, contact page, service pages, and city pages show **Get Free Estimate** and the phone number. Update `CONFIG.js` for verified business details and `city-content.js` for researched city guidance. The chat widget is configured with a Make webhook; a receiver-side delivery test is required before treating submissions as verified live.
+
+Run `node build-site.js` to regenerate the pages, sitemap, robots file, and llms file and prepare the public-only `dist/` output. Run `node check-site.js` before publishing. The connected Cloudflare Pages project builds with `node build-site.js` and publishes `dist/` at `https://aw-fencing.com`. The company base remains Cherryville; Charlotte is the headline service market.
+
+The city copy draws on the client knowledge base and the public A&W website. The Charlotte street-side certificate guidance comes from the [City of Charlotte](https://www.charlottenc.gov/Services/Permits/Fence-and-Wall-Certificates). For cross-county locations, verify the parcel's jurisdiction rather than assuming one county from the city name. Do not publish unverified prices, ratings, warranty terms, or project claims.
+
+The template instructions below describe older lead form behavior and are not the current A&W Fencing flow.
 
 A fully config-driven, multi-page website for epoxy and professional home services contractors. Zero dependencies, no build step required for deployment. One config file controls almost everything.
 

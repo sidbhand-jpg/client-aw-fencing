@@ -106,32 +106,38 @@ const CONFIG = {
   businessName: "A&W Fencing",
   niche: "Fencing",
   tagline: "Professional Fencing Installations Built for Lasting Performance",
-  phone: "(704) 771-1901",
-  phoneRaw: "7047711901",
+  phone: "(704) 741-8528",
+  phoneRaw: "7047418528",
   email: "",
   city: "Cherryville",
+  primaryMarket: "Charlotte",
+  siteUrl: "https://aw-fencing.com",
   state: "North Carolina",
   stateShort: "NC",
   address: "Cherryville, NC 28021",
   licenseNumber: "",
   colors: { primary: "#3B82F6", secondary: "#1C2333" },
-  social: { facebook: "", instagram: "", youtube: "", yelp: "", nextdoor: "" },
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61591272494485",
+    instagram: "https://www.instagram.com/aw.fence/",
+    googleBusinessProfile: "https://share.google/aMcOY1YjUOyQJ4O16",
+  },
   googleReviewsUrl: "",
   rating: "",
   reviewCount: 0,
   yearsExperience: 0,
-  projectsCompleted: "0+",
-  satisfactionRate: "98%",
-  webhookUrl: "",
+  projectsCompleted: "",
+  satisfactionRate: "",
+  webhookUrl: "https://hook.us2.make.com/bo7e27fc6zgfm0kt35rhxtxqs7o1udtm",
   metaPixelId: "",
   maps: { mapEmbedUrl: "", mapSearchQuery: "A&W Fencing Cherryville NC", mapHeight: 420 },
   hero: {
     eyebrow: "Local Home Service Professionals",
-    headline: "Install Fencing Built for Lasting Performance",
-    subheadline: "Professional installations designed to match your property's layout and functional requirements.",
-    ctaPrimary: "Get a Free Estimate",
+    headline: "Fence Installation in Charlotte & Surrounding Communities",
+    subheadline: "Residential, commercial, and agricultural fences and custom gates planned for your property's layout and purpose.",
+    ctaPrimary: "Get Free Estimate",
     ctaSecondary: "Explore Services",
-    heroImage: "https://irp.cdn-website.com/7e50aa29/dms3rep/multi/opt/shutterstock_2243694087-660h.jpg",
+    heroImage: "/public/projects/shadowbox-fence-long-run.jpg",
   },
   services: [
     {
@@ -139,11 +145,11 @@ const CONFIG = {
       name: "Residential Fence Installation",
       desc: "Privacy, security, and curb appeal tailored to your home's specific needs and layout.",
       longDesc: "Enhance your home's privacy, security, and curb appeal with a professionally installed residential fence. We offer a variety of materials and styles, including wood, vinyl, aluminum, and chain link, designed to complement your property's aesthetic and meet your specific needs for pet containment, child safety, or boundary definition. Our team ensures a seamless installation process from start to finish.",
-      benefits: ["Enhanced Privacy", "Increased Property Security", "Improved Curb Appeal", "Pet & Child Safety", "Property Value Boost"],
+      benefits: ["Enhanced Privacy", "Defined Property Boundaries", "Improved Curb Appeal", "Pet Containment", "Material and Gate Options"],
       faqs: [
         { q: "What types of residential fences do you install?", a: "We install a wide range of residential fences, including wood privacy fences, decorative aluminum fences, low-maintenance vinyl fences, and durable chain link fences." },
-        { q: "How long does residential fence installation take?", a: "The duration depends on the fence length, material, and site conditions, but most residential projects are completed within a few days to a week." },
-        { q: "Do I need a permit for a residential fence in Cherryville?", a: "Permit requirements vary by location and fence height. We can help guide you through the local regulations in Cherryville and surrounding areas." }
+        { q: "How long does residential fence installation take?", a: "Timing depends on the length, material, gates, site conditions, weather, and any approvals. We discuss a project-specific timeline after reviewing the property." },
+        { q: "Do I need approval for a residential fence in Charlotte?", a: "Requirements depend on the parcel and fence location. Charlotte requires a no-cost fence and wall certificate for fences along city-maintained streets or sidewalks. Check the applicable local rules and any HOA requirements before work begins." }
       ],
       image: "/public/services/residential-fence-installation.jpg",
     },
@@ -154,8 +160,8 @@ const CONFIG = {
       longDesc: "Protect your business assets and secure your commercial property with our professional-grade fencing solutions. We design and install durable fences for various commercial needs, including perimeter security, access control, and aesthetic enhancement. Our options include heavy-duty chain link, ornamental iron, anti-climb fencing, and more, all built to withstand demanding environments and provide lasting security.",
       benefits: ["Asset Protection & Security", "Deterrence of Trespassing", "Controlled Access Points", "Enhanced Business Image", "Compliance with Regulations"],
       faqs: [
-        { q: "What security features can you integrate into commercial fences?", a: "We can integrate features like barbed wire, razor wire, anti-climb designs, and advanced gate access control systems for maximum security." },
-        { q: "Can you install fencing for large commercial properties?", a: "Yes, our team is equipped to handle commercial fencing projects of all sizes, from small businesses to large industrial complexes." },
+        { q: "What access features can a commercial fence include?", a: "Depending on the site, the design may include reinforced gates, controlled entry, and appropriate fence materials. The team reviews traffic and security requirements before recommending a system." },
+        { q: "Can you discuss a larger commercial fence project?", a: "Yes. Share the site address, perimeter, access points, and security needs so the team can assess the scope and confirm availability." },
         { q: "What materials are best for commercial security fences?", a: "Heavy-gauge chain link, ornamental steel/iron, and high-security mesh are popular choices for their durability and security features." }
       ],
       image: "/public/services/commercial-fence-installation.jpg",
@@ -167,9 +173,9 @@ const CONFIG = {
       longDesc: "Enhance the convenience and security of your property with custom gates and state-of-the-art automatic access control systems. Whether you need a grand entrance gate for your estate, a secure entry for a commercial complex, or a simple automated driveway gate, we design and install solutions that combine functionality, durability, and aesthetic appeal. Our systems can include keypads, remote controls, intercoms, and smart integration.",
       benefits: ["Convenient Property Access", "Enhanced Security & Control", "Increased Property Value", "Custom Design Options", "Integration with Smart Systems"],
       faqs: [
-        { q: "What types of automatic gates do you install?", a: "We install swing gates, slide gates, and cantilever gates, all custom-fabricated to fit your specific opening and operational needs." },
-        { q: "Can automatic gates be integrated with existing security systems?", a: "Yes, we can integrate new gate automation with your existing security cameras, intercoms, and smart home or business systems." },
-        { q: "What happens if there's a power outage?", a: "Most automatic gate systems come with a battery backup or a manual override option to ensure access during power interruptions." }
+        { q: "What types of automatic gates do you install?", a: "Swing and slide gates are among the options. The opening width, slope, available clearance, and intended use determine which design fits." },
+        { q: "What access controls can a gate include?", a: "Depending on the selected equipment, options can include remotes, keypads, card readers, smartphone controls, and safety sensors." },
+        { q: "What happens if there's a power outage?", a: "Some gate operators offer battery backup or a manual release. Confirm the exact operation and backup capability for the proposed system." }
       ],
       image: "/public/services/custom-gates-access-control.jpg",
     },
@@ -181,26 +187,20 @@ const CONFIG = {
       benefits: ["Effective Livestock Containment", "Crop Protection from Wildlife", "Clear Boundary Definition", "Durable & Long-lasting", "Reduced Maintenance"],
       faqs: [
         { q: "What is the best fence for livestock containment?", a: "The best fence depends on the type of livestock. Woven wire is excellent for smaller animals, while high-tensile and barbed wire are effective for larger animals like cattle." },
-        { q: "Can you install fencing for large acreage?", a: "Yes, we have experience installing agricultural fencing across extensive acreage, efficiently and effectively." },
+        { q: "Can you assess fencing for larger acreage?", a: "Yes. Share the property address, approximate acreage, livestock type, and required gates so the team can assess the layout and confirm the scope." },
         { q: "Do you offer repair services for farm fences?", a: "Absolutely. We provide repair services to maintain the integrity and functionality of your existing farm and agricultural fences." }
       ],
       image: "/public/services/farm-agricultural-fencing.jpg",
     },
   ],
   serviceAreaGroups: SERVICE_AREA_GROUPS,
-  serviceAreas: Array.from(
-    new Map(
-      SERVICE_AREA_GROUPS.flatMap(group =>
-        group.areas.map(area => [area.slug, { ...area, county: group.county }])
-      )
-    ).values()
-  ),
-  testimonials: [
-    { name: "Sarah", city: "Cherryville", text: "A&W Fencing did an amazing job on our new privacy fence in Cherryville. The team was professional, efficient, and the quality is outstanding. Highly recommend!" },
-    { name: "John", city: "Cherryville", text: "We needed a secure fence for our commercial property in Cherryville, and A&W Fencing delivered. The process was smooth, and the fence looks great while providing the security we needed." },
-    { name: "Emily", city: "Cherryville", text: "Our new automatic gate from A&W Fencing is a game-changer! It's so convenient and adds a layer of security we didn't have before. Excellent service in Cherryville!" },
-    { name: "Michael", city: "Cherryville", text: "As a farmer in the Cherryville area, reliable fencing is crucial. A&W Fencing installed a robust agricultural fence for us that perfectly contains our livestock. Fantastic work!" }
-  ],
+  serviceAreas: Array.from(new Map(
+    SERVICE_AREA_GROUPS.flatMap(group => group.areas.map(area => [area.slug, area]))
+  ).values()).map(area => ({
+    ...area,
+    counties: SERVICE_AREA_GROUPS.filter(group => group.areas.some(item => item.slug === area.slug)).map(group => group.county),
+  })),
+  testimonials: [],
   processSteps: [
     { title: "Tell Us About Your Project", desc: "Share your goals and schedule a convenient consultation." },
     { title: "Receive a Clear Plan", desc: "We assess the work and provide a straightforward recommendation." },
@@ -208,7 +208,7 @@ const CONFIG = {
     { title: "Final Walkthrough", desc: "We make sure the completed work meets your expectations." },
   ],
   faqs: [
-    { q: "What areas do you serve?", a: "We proudly serve Cherryville, NC, and the surrounding communities, including Lake Norman, Charlotte, Gastonia, Lincolnton, Salisbury, Concord, and Hickory areas." },
+    { q: "What areas do you serve?", a: "We serve Charlotte and surrounding communities across Mecklenburg, Gaston, Lincoln, Rowan, Cabarrus, Catawba, and Iredell counties. Our business is based in Cherryville, NC. Contact us with your project address to confirm availability." },
     { q: "What types of fencing materials do you offer?", a: "We offer a wide range of materials including durable wood, low-maintenance vinyl, elegant aluminum, and robust chain link, as well as specialized options for agricultural and custom gate projects." },
     { q: "How long does a typical fence installation take?", a: "The timeline for installation varies depending on the size, complexity, and materials chosen for your project. We provide an estimated timeline during your initial consultation." },
     { q: "Do you offer financing options for fencing projects?", a: "Yes, we understand that a new fence is an investment. Financing options are available through First Citizens Bank to help make your project more affordable." },

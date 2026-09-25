@@ -160,7 +160,7 @@ function renderHeader() {
           <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12a19.79 19.79 0 01-3-8.63A2 2 0 012.11 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.27a16 16 0 006.29 6.29l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.36z"/></svg>
           ${CONFIG.phone}
         </a>
-        <a href="/contact.html" class="btn-primary-sm">Free Quote</a>
+        <a href="#chat-widget" class="btn-primary-sm" data-open-chat>Get Free Estimate</a>
       </div>
 
       <!-- Mobile hamburger -->
@@ -200,7 +200,7 @@ function renderHeader() {
             <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12a19.79 19.79 0 01-3-8.63A2 2 0 012.11 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.27a16 16 0 006.29 6.29l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.36z"/></svg>
             ${CONFIG.phone}
           </a>
-          <a href="/contact.html" class="btn-primary w-full text-center">Get Free Quote</a>
+          <a href="#chat-widget" class="btn-primary w-full text-center" data-open-chat>Get Free Estimate</a>
         </div>
       </div>
     </div>
@@ -281,10 +281,11 @@ function renderFooter() {
       </div>
     </section>`).join('');
 
-  // Social icons — only render if URL is set
+  // Render only configured social profiles.
   const SOCIAL_ICONS = {
     facebook:  { label: 'Facebook',  svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>' },
     instagram: { label: 'Instagram', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>' },
+    googleBusinessProfile: { label: 'Google Business Profile', svg: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>' },
     youtube:   { label: 'YouTube',   svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="#fff" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>' },
     tiktok:    { label: 'TikTok',    svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>' },
     linkedin:  { label: 'LinkedIn',  svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>' },
@@ -294,10 +295,10 @@ function renderFooter() {
   };
   const social = CONFIG.social || {};
   const socialHTML = Object.entries(SOCIAL_ICONS)
-    .filter(([key]) => social[key] && social[key].trim())
-    .map(([key, meta]) => `<a href="${social[key]}" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="${meta.label}">${meta.svg}</a>`)
+    .filter(([key]) => typeof social[key] === 'string' && /^https:\/\//i.test(social[key].trim()))
+    .map(([key, meta]) => `<a href="${social[key].trim()}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="${meta.label}">${meta.svg}</a>`)
     .join('');
-  const socialRow = socialHTML ? `<div class="footer-social-row">${socialHTML}</div>` : '';
+  const socialRow = socialHTML ? `<div class="footer-social-row" aria-label="Social media">${socialHTML}</div>` : '';
 
   const html = `
   <!-- FOOTER -->
@@ -315,10 +316,10 @@ function renderFooter() {
             <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12a19.79 19.79 0 01-3-8.63A2 2 0 012.11 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.27a16 16 0 006.29 6.29l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.36z"/></svg>
             ${CONFIG.phone}
           </a>
-          <a href="mailto:${CONFIG.email}" class="footer-contact-item">
+          ${CONFIG.email ? `<a href="mailto:${CONFIG.email}" class="footer-contact-item">
             <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             ${CONFIG.email}
-          </a>
+          </a>` : ''}
           <div class="footer-contact-item">
             <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             ${CONFIG.address}
@@ -337,10 +338,7 @@ function renderFooter() {
       <div class="footer-col footer-areas-col">
         <div class="footer-col-title">Service Areas</div>
         <div class="footer-area-groups">${areaLinks}</div>
-        <div class="footer-license">
-          <div>License #${CONFIG.licenseNumber}</div>
-          <div>Licensed &amp; Insured in ${CONFIG.state}</div>
-        </div>
+        ${CONFIG.licenseNumber ? `<div class="footer-license">License #${CONFIG.licenseNumber}</div>` : ''}
       </div>
 
       <!-- Company column -->
@@ -362,8 +360,8 @@ function renderFooter() {
         <div>&copy; <span id="footer-year"></span> ${CONFIG.businessName}. All rights reserved.</div>
         <div>${CONFIG.niche || 'Professional Home Services'} &middot; ${CONFIG.state}.</div>
       </div>
-      <div class="container-wide" style="padding-block: 0.5rem 1rem; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
-        Website Design &amp; Marketing by <a href="https://houzflow.com" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.55); text-decoration: none;">HouzFlow</a>
+      <div class="container-wide footer-credit">
+        Website Design &amp; Marketing by <a href="https://houzflow.com" target="_blank" rel="noopener">HouzFlow</a>
       </div>
     </div>
   </footer>`;
@@ -380,25 +378,36 @@ function renderChatWidget() {
     <div class="chat-panel" id="chat-panel" style="display:none">
       <div class="chat-header">
         <div>
-          <div class="chat-header-title">Chat with Us</div>
-          <div class="chat-header-sub">Typically reply in 15 minutes</div>
+          <div class="chat-header-title">Get Free Estimate</div>
+          <div class="chat-header-sub">Tell us about your fence project</div>
         </div>
-        <button class="chat-close" id="chat-close-btn">
+         <button class="chat-close" id="chat-close-btn" aria-label="Close chat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
       <div class="chat-body" id="chat-body">
         <form id="chat-form" class="chat-form">
-          <p class="chat-intro">Hi! Tell us about your project and we'll get right back to you.</p>
-          <input required name="name" placeholder="Your Name" class="form-input" />
-          <input required name="phone" type="tel" placeholder="Phone Number" class="form-input" />
-          <textarea required name="message" rows="3" placeholder="How can we help?" class="form-textarea"></textarea>
-          <div id="chat-error" class="form-error" style="display:none">Something went wrong. Please call us instead.</div>
-          <button type="submit" class="btn-primary w-full" id="chat-submit-btn">Send Message</button>
+           <p class="chat-intro">Share a few details and we'll follow up about your estimate.</p>
+           <label class="chat-field-label" for="chat-name">Full name</label>
+           <input required id="chat-name" name="name" autocomplete="name" placeholder="Full name" class="form-input" />
+           <label class="chat-field-label" for="chat-phone">Phone</label>
+           <input required id="chat-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" class="form-input" />
+           <label class="chat-field-label" for="chat-email">Email</label>
+           <input required id="chat-email" name="email" type="email" autocomplete="email" placeholder="Email address" class="form-input" />
+           <label class="chat-field-label" for="chat-service">Fence project</label>
+           <select required id="chat-service" name="service" class="form-select">
+             <option value="" disabled selected>Select your project</option>
+             ${CONFIG.services.map(s => `<option value="${s.slug}">${s.name}</option>`).join('')}
+             <option value="other">Other / Not sure</option>
+           </select>
+           <label class="chat-field-label" for="chat-details">Details</label>
+           <textarea required id="chat-details" name="message" rows="3" placeholder="Tell us about your fence project" class="form-textarea"></textarea>
+           <div id="chat-error" class="form-error" role="alert" style="display:none">We can't send your request right now. Please call <a href="tel:${CONFIG.phoneRaw}">${CONFIG.phone}</a>.</div>
+           <button type="submit" class="btn-primary w-full" id="chat-submit-btn">Submit</button>
         </form>
       </div>
     </div>
-    <button class="chat-fab" id="chat-fab" aria-label="Open chat">
+     <button class="chat-fab" id="chat-fab" aria-label="Open chat" aria-controls="chat-panel" aria-expanded="false">
       <svg id="chat-icon-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-lg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       <svg id="chat-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-lg" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -430,36 +439,38 @@ function initChatWidget() {
     form.innerHTML = '<p class="text-center text-muted" style="padding:1rem">We already have your message. We\'ll be in touch shortly!</p>';
   }
 
-  function togglePanel() {
-    const isOpen = panel.style.display !== 'none';
-    panel.style.display = isOpen ? 'none' : 'block';
-    iconMsg.style.display = isOpen ? 'block' : 'none';
-    iconX.style.display = isOpen ? 'none' : 'block';
-  }
+   function setPanelOpen(open) {
+     panel.style.display = open ? 'block' : 'none';
+     fab.setAttribute('aria-expanded', String(open));
+     iconMsg.style.display = open ? 'none' : 'block';
+     iconX.style.display = open ? 'block' : 'none';
+   }
 
-  fab.addEventListener('click', togglePanel);
-  closeBtn.addEventListener('click', () => {
-    panel.style.display = 'none';
-    iconMsg.style.display = 'block';
-    iconX.style.display = 'none';
-  });
+   fab.addEventListener('click', () => setPanelOpen(panel.style.display === 'none'));
+   document.addEventListener('click', (e) => {
+     const trigger = e.target.closest('[data-open-chat]');
+     if (!trigger) return;
+     e.preventDefault();
+     setPanelOpen(true);
+     document.getElementById('chat-name')?.focus();
+   });
+   closeBtn.addEventListener('click', () => {
+     setPanelOpen(false);
+     fab.focus();
+   });
 
   // Close on outside click
   document.addEventListener('mousedown', (e) => {
     const widget = document.getElementById('chat-widget');
     if (!widget.contains(e.target)) {
-      panel.style.display = 'none';
-      iconMsg.style.display = 'block';
-      iconX.style.display = 'none';
+       setPanelOpen(false);
     }
   });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      panel.style.display = 'none';
-      iconMsg.style.display = 'block';
-      iconX.style.display = 'none';
+       setPanelOpen(false);
     }
   });
 
@@ -471,14 +482,13 @@ function initChatWidget() {
     const data = Object.fromEntries(new FormData(form).entries());
     const attribution = HouzflowAttribution.get();
     try {
-      if (CONFIG.webhookUrl) {
-        await fetch(CONFIG.webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({ source: 'chat', ...data, ...attribution }),
-        });
-      }
+       if (!CONFIG.webhookUrl) throw new Error('Chat delivery is not configured');
+       await fetch(CONFIG.webhookUrl, {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           mode: 'no-cors',
+           body: JSON.stringify({ source: 'chat', ...data, ...attribution }),
+       });
       if (typeof fbq !== 'undefined' && CONFIG.metaPixelId) {
         fbq('track', 'Lead', {}, { eventID: attribution.lead_event_id });
       }
@@ -489,151 +499,12 @@ function initChatWidget() {
           <div class="chat-thanks-title">Thanks — we'll be in touch shortly.</div>
         </div>`;
       setTimeout(() => {
-        panel.style.display = 'none';
-        iconMsg.style.display = 'block';
-        iconX.style.display = 'none';
+         setPanelOpen(false);
       }, 3000);
     } catch {
       chatError.style.display = 'block';
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-    }
-  });
-}
-
-// ── LEAD FORM BUILDER ─────────────────────────────────────────
-// Hidden fields carrying Meta CAPI attribution data, injected into
-// every lead form. Populated at submit time from HouzflowAttribution.
-function attributionHiddenFieldsHTML() {
-  return `
-      <input type="hidden" name="utm_source" />
-      <input type="hidden" name="utm_medium" />
-      <input type="hidden" name="utm_campaign" />
-      <input type="hidden" name="utm_content" />
-      <input type="hidden" name="utm_term" />
-      <input type="hidden" name="ad_id" />
-      <input type="hidden" name="adset_id" />
-      <input type="hidden" name="campaign_id" />
-      <input type="hidden" name="fbclid" />
-      <input type="hidden" name="fbp" />
-      <input type="hidden" name="fbc" />
-      <input type="hidden" name="source_url" />
-      <input type="hidden" name="user_agent" />
-      <input type="hidden" name="lead_event_id" />`;
-}
-
-// opts: { variant, defaultService, showMessage, showEmail, showCity }
-function buildLeadForm(containerId, opts = {}) {
-  const {
-    variant = 'card',
-    defaultService = '',
-    showMessage = true,
-    showEmail = false,
-    showCity = false,
-  } = opts;
-
-  const serviceOptions = CONFIG.services.map(s =>
-    `<option value="${s.slug}" ${s.slug === defaultService ? 'selected' : ''}>${s.name}</option>`
-  ).join('');
-
-  const cityOptions = CONFIG.serviceAreas.map(a =>
-    `<option value="${a.slug}">${a.name}</option>`
-  ).join('');
-
-  const wrapClass = variant === 'card'
-    ? 'lead-form-card'
-    : 'lead-form-full';
-
-  const html = `
-  <div class="${wrapClass}" id="lead-form-wrap-${containerId}">
-    <div class="lead-form-header">
-      <div class="lead-form-title">Get a Free Quote</div>
-      <div class="lead-form-sub">We'll call back within 15 minutes during business hours.</div>
-    </div>
-    <div id="lead-form-success-${containerId}" class="lead-form-success" style="display:none">
-      <div class="lead-form-success-icon">✅</div>
-      <div class="lead-form-success-title">Quote request received!</div>
-      <p class="lead-form-success-sub">A ${CONFIG.niche || 'service'} specialist will be in touch shortly.</p>
-    </div>
-    <form id="lead-form-${containerId}" class="lead-form-fields">
-      <input required name="name" placeholder="Full Name" class="form-input" />
-      <input required name="phone" type="tel" placeholder="Phone Number" class="form-input" />
-      ${showEmail ? `<input required name="email" type="email" placeholder="Email Address" class="form-input" />` : ''}
-      <select required name="service" class="form-select">
-        <option value="" disabled ${!defaultService ? 'selected' : ''}>Type of Project</option>
-        ${serviceOptions}
-        <option value="other">Not Sure — Need Advice</option>
-      </select>
-      ${showCity ? `<select required name="city" class="form-select"><option value="" disabled selected>Your City</option>${cityOptions}</select>` : ''}
-      <input name="sqft" placeholder="Project details (optional)" class="form-input" />
-      ${showMessage ? `<textarea name="message" rows="3" placeholder="Tell us about your project (optional)" class="form-textarea"></textarea>` : ''}
-      <!-- A2P SMS consent -->
-      <label class="consent-label">
-        <input type="checkbox" name="smsConsent" value="yes" class="consent-checkbox" />
-        <span class="consent-text">
-          I agree to receive SMS messages from ${CONFIG.businessName} about my quote and project.
-          Message &amp; data rates may apply. Reply STOP to opt out. See our
-          <a href="/privacy-policy.html" class="consent-link">Privacy Policy</a>.
-        </span>
-      </label>
-      ${attributionHiddenFieldsHTML()}
-      <div id="lead-form-error-${containerId}" class="form-error" style="display:none">Something went wrong. Please call us instead.</div>
-      <button type="submit" class="btn-primary w-full" id="lead-submit-${containerId}">
-        Get My Free Quote &rarr;
-      </button>
-      <p class="form-disclaimer">No pressure. We never share your info.</p>
-    </form>
-  </div>`;
-
-  const container = document.getElementById(containerId);
-  if (container) {
-    container.innerHTML = html;
-    initLeadForm(containerId);
-  }
-}
-
-function initLeadForm(id) {
-  const form = document.getElementById(`lead-form-${id}`);
-  const success = document.getElementById(`lead-form-success-${id}`);
-  const submitBtn = document.getElementById(`lead-submit-${id}`);
-  const errorDiv = document.getElementById(`lead-form-error-${id}`);
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    errorDiv.style.display = 'none';
-
-    // Populate hidden attribution fields with the current session's data
-    const attribution = HouzflowAttribution.get();
-    Object.keys(attribution).forEach((key) => {
-      const field = form.elements[key];
-      if (field) field.value = attribution[key];
-    });
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      if (CONFIG.webhookUrl) {
-        await fetch(CONFIG.webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({ source: 'lead-form', ...data }),
-        });
-      }
-      // Fire Meta Pixel Lead event, deduplicated against the server-side
-      // CAPI Lead event via the shared lead_event_id.
-      if (typeof fbq !== 'undefined' && CONFIG.metaPixelId) {
-        fbq('track', 'Lead', {}, { eventID: attribution.lead_event_id });
-      }
-      await new Promise(r => setTimeout(r, 400));
-      form.style.display = 'none';
-      success.style.display = 'block';
-    } catch {
-      errorDiv.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Get My Free Quote →';
+       submitBtn.textContent = 'Submit';
     }
   });
 }
@@ -670,10 +541,9 @@ function renderTrustBar(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const items = [
-    { svg: `<svg viewBox="0 0 24 24" fill="currentColor" class="trust-icon"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>`, label: `${CONFIG.rating}-Star Rated`, sub: `${CONFIG.reviewCount} verified reviews` },
-    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, label: "Written Warranty", sub: "Every job guaranteed" },
-    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, label: "On-Time Completion", sub: "We stick to our schedule" },
-    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, label: "Licensed &amp; Insured", sub: "$2M liability coverage" },
+    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`, label: 'Serving Charlotte', sub: 'And surrounding communities' },
+    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><path d="M4 4h16v16H4z"/><path d="M8 4v16M16 4v16M4 12h16"/></svg>`, label: 'Fence Installation', sub: 'Residential and commercial' },
+    { svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>`, label: 'Free Estimates', sub: 'Talk through your project' },
   ];
   container.innerHTML = `
     <div class="trust-bar-inner">
@@ -697,14 +567,25 @@ function ctaSectionHTML({ title, subtitle }) {
       <h2 class="cta-title">${title}</h2>
       ${subtitle ? `<p class="cta-subtitle">${subtitle}</p>` : ''}
       <div class="cta-btns">
-        <a href="/contact.html" class="btn-primary btn-lg">Get My Free Quote</a>
-        <a href="tel:${CONFIG.phoneRaw}" class="btn-outline btn-lg">
+         <a href="#chat-widget" class="btn-primary btn-lg" data-open-chat>Get Free Estimate</a>
+         <a href="tel:${CONFIG.phoneRaw}" class="btn-outline btn-lg">
           <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12a19.79 19.79 0 01-3-8.63A2 2 0 012.11 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.27a16 16 0 006.29 6.29l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.36z"/></svg>
-          Call ${CONFIG.phone}
+           ${CONFIG.phone}
         </a>
       </div>
     </div>
   </section>`;
+}
+
+function estimateCardHTML() {
+  return `<div class="estimate-card">
+    <h2>Ready for a free estimate?</h2>
+    <p>Tell us about your fence project or give us a call.</p>
+    <div class="estimate-card-actions">
+      <a href="#chat-widget" class="btn-primary w-full" data-open-chat>Get Free Estimate</a>
+      <a href="tel:${CONFIG.phoneRaw}" class="btn-phone w-full justify-center">${CONFIG.phone}</a>
+    </div>
+  </div>`;
 }
 
 // ── PROCESS STEPS ─────────────────────────────────────────────

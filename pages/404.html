@@ -50,8 +50,8 @@
       Let's get you back to solid ground.
     </p>
     <div class="notfound-btns">
-      <a href="/" class="btn-primary btn-lg">Go to Homepage</a>
-      <a href="/contact.html" class="btn-outline btn-lg">Get a Free Quote</a>
+      <a href="#chat-widget" class="btn-primary btn-lg" data-open-chat>Get Free Estimate</a>
+      <a href="#" class="btn-outline btn-lg" id="notfound-phone-link"><span id="notfound-phone-text"></span></a>
     </div>
     <!-- Quick links -->
     <div class="notfound-links">
@@ -63,6 +63,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   document.title = `Page Not Found | ${CONFIG.businessName}`;
+  document.getElementById('notfound-phone-link').href = `tel:${CONFIG.phoneRaw}`;
+  document.getElementById('notfound-phone-text').textContent = CONFIG.phone;
   const links = [
     { label: 'Services', href: '/index.html#services' },
     { label: 'Our Work', href: '/pages/our-work.html' },

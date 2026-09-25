@@ -26,19 +26,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/public/brand/aw-fencing-logo.png" />
-  <title>Our Fencing Work | Portfolio</title>
-  <meta name="description" content="See completed wood privacy fences, shadowbox fencing, horizontal fences, and custom gates installed by A&amp;W Fencing." />
-  <meta property="og:title" content="Our Fencing Work | Portfolio" />
-  <meta property="og:description" content="See completed fence and gate installations from A&amp;W Fencing." />
-  <meta property="og:type" content="website" />
+  <title>Fence &amp; Gate Project Gallery | A&amp;W Fencing</title>
+  <meta name="description" content="Explore A&amp;W Fencing project photos and discuss wood, vinyl, aluminum, chain link, or gate ideas for your property." />
   <!-- og:image / twitter:image filled in by generate-pages.js from the top featured PROJECTS entry -->
-  <meta property="og:image" content="/public/projects/shadowbox-fence-long-run.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="/public/projects/shadowbox-fence-long-run.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=optional" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- SEO HEAD START -->
+  <link rel="canonical" href="https://aw-fencing.com/our-work.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fence &amp; Gate Project Gallery | A&amp;W Fencing" />
+  <meta property="og:description" content="Explore A&amp;W Fencing project photos and discuss wood, vinyl, aluminum, chain link, or gate ideas for your property." />
+  <meta property="og:url" content="https://aw-fencing.com/our-work.html" />
+  <meta property="og:image" content="https://aw-fencing.com/public/projects/shadowbox-fence-long-run.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://aw-fencing.com/public/projects/shadowbox-fence-long-run.jpg" />
+  <meta name="twitter:title" content="Fence &amp; Gate Project Gallery | A&amp;W Fencing" />
+  <meta name="twitter:description" content="Explore A&amp;W Fencing project photos and discuss wood, vinyl, aluminum, chain link, or gate ideas for your property." />
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yntjjym8h7");</script>
+  <!-- SEO HEAD END -->
 </head>
 <body>
 
@@ -70,7 +77,7 @@
 </section>
 
 <!-- ── SOCIAL PROOF STRIP ─────────────────────────────────────── -->
-<section class="section-y bg-white">
+<section class="section-y bg-white" id="portfolio-proof-section" hidden>
   <div class="container-wide">
     <div id="portfolio-proof-header"></div>
     <div class="portfolio-reviews-row" id="portfolio-reviews-row"></div>
@@ -91,7 +98,7 @@
 </div><script src="components.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.title = `Our Work | Portfolio | ${CONFIG.businessName}`;
+  document.title = `Fence & Gate Project Gallery | ${CONFIG.businessName}`;
 
   // Build unique category list
   const cats = [...new Set(PROJECTS.map(p => p.category))];
@@ -177,11 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
   // Reviews strip
+  const verifiedTestimonials = CONFIG.testimonials.filter(t => t.name && t.text && t.stars && t.city);
+  document.getElementById('portfolio-proof-section').hidden = verifiedTestimonials.length === 0;
   document.getElementById('portfolio-proof-header').innerHTML = sectionHeaderHTML({
     eyebrow: 'What Customers Say',
-    title: 'Real Reviews from Real Projects'
+    title: 'Project Feedback'
   });
-  document.getElementById('portfolio-reviews-row').innerHTML = CONFIG.testimonials.slice(0, 3).map(t => `
+  document.getElementById('portfolio-reviews-row').innerHTML = verifiedTestimonials.slice(0, 3).map(t => `
     <div class="portfolio-review-card">
       <div class="stars">${renderStars(t.stars)}</div>
       <p class="portfolio-review-text">"${t.text}"</p>

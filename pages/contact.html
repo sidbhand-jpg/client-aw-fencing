@@ -24,8 +24,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/public/brand/aw-fencing-logo.png" />
-  <title>Contact | Get a Free Quote</title>
-  <meta name="description" content="Request a free epoxy project quote. We visit your site, assess the concrete, and give you a written estimate — usually same day." />
+  <title>Contact | Get Free Estimate</title>
+  <meta name="description" content="Contact A&W Fencing to discuss your fence project and request a free estimate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=optional" rel="stylesheet" />
@@ -38,9 +38,9 @@
   <div class="grid-overlay"></div>
   <div class="container-wide" style="position:relative">
     <div class="page-hero-eyebrow">Contact Us</div>
-    <h1 style="color:#fff; margin-bottom: 1rem;">Get Your Free Quote</h1>
+    <h1 style="color:#fff; margin-bottom: 1rem;">Get Free Estimate</h1>
     <p style="color:rgba(255,255,255,0.8); font-size:1.125rem; max-width:42rem; line-height:1.65;">
-      Fill in the form and we'll follow up within 15 minutes during business hours. Or call us directly — we pick up.
+      Tell us about your fence project in the chat widget or call us directly.
     </p>
   </div>
 </section>
@@ -51,8 +51,9 @@
 
     <!-- Left: info cards -->
     <div class="contact-info-col">
-      <h2 class="contact-info-heading">Talk to a Home Services Specialist</h2>
-      <p class="contact-info-sub">No bots, no runaround. A real home services expert answers every call and reviews every form submission.</p>
+      <h2 class="contact-info-heading">Talk to A&W Fencing</h2>
+      <p class="contact-info-sub">Choose how you'd like to get started.</p>
+      <a href="#chat-widget" class="btn-primary" data-open-chat>Get Free Estimate</a>
 
       <div class="contact-cards">
         <!-- Phone -->
@@ -63,19 +64,7 @@
           <div>
             <div class="contact-card-label">Call Us</div>
             <div class="contact-card-value" id="contact-phone-display"></div>
-            <div class="contact-card-note">Mon–Sat 7am–7pm</div>
-          </div>
-        </a>
-
-        <!-- Email -->
-        <a href="#" class="contact-card" id="contact-email-card">
-          <div class="contact-card-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-card-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div class="contact-card-label">Email Us</div>
-            <div class="contact-card-value" id="contact-email-display"></div>
-            <div class="contact-card-note">Replies within a few hours</div>
+            <div class="contact-card-note">Tap to call</div>
           </div>
         </a>
 
@@ -85,38 +74,15 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact-card-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="contact-card-label">Service Area</div>
+            <div class="contact-card-label">Business Base</div>
             <div class="contact-card-value" id="contact-city-display"></div>
-            <div class="contact-card-note" id="contact-license-display"></div>
+            <div class="contact-card-note">Serving Charlotte and surrounding communities</div>
           </div>
         </div>
       </div>
 
-      <!-- Trust signals -->
-      <div class="contact-trust-list">
-        <div class="contact-trust-item">
-          <svg class="contact-trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Free site visit — no obligation
-        </div>
-        <div class="contact-trust-item">
-          <svg class="contact-trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Written estimate, usually same day
-        </div>
-        <div class="contact-trust-item">
-          <svg class="contact-trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Licensed, insured, background-checked crew
-        </div>
-        <div class="contact-trust-item">
-          <svg class="contact-trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Written workmanship warranty
-        </div>
-      </div>
     </div>
 
-    <!-- Right: Lead form -->
-    <div class="contact-form-col">
-      <div id="contact-lead-form"></div>
-    </div>
   </div>
 </section>
 
@@ -129,35 +95,22 @@
 </section><script src="../components.js"></script><script src="/generic-runtime.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.title = `Contact | Get a Free Quote | ${CONFIG.businessName}`;
+  document.title = `Contact A&W Fencing | Request a Fence Estimate`;
 
   // Fill contact info
   const phoneCard = document.getElementById('contact-phone-card');
   phoneCard.href = `tel:${CONFIG.phoneRaw}`;
   document.getElementById('contact-phone-display').textContent = CONFIG.phone;
 
-  const emailCard = document.getElementById('contact-email-card');
-  emailCard.href = `mailto:${CONFIG.email}`;
-  document.getElementById('contact-email-display').textContent = CONFIG.email;
-
   document.getElementById('contact-city-display').textContent = CONFIG.city;
-  document.getElementById('contact-license-display').textContent = `License #${CONFIG.licenseNumber}`;
-
-  // Form
-  buildLeadForm('contact-lead-form', {
-    variant: 'full',
-    showMessage: true,
-    showEmail: true,
-    showCity: true,
-  });
 
   // Map
   document.getElementById('contact-map-header').innerHTML = sectionHeaderHTML({
     eyebrow: 'Service Coverage',
-    title: `We Serve ${CONFIG.city} & Beyond`,
-    subtitle: 'Free site visits within our service zone. No travel fees.'
+    title: `Serving Charlotte & Surrounding Communities`,
+    subtitle: 'Contact us to discuss availability in your area.'
   });
-  document.getElementById('contact-map').innerHTML = mapEmbedHTML(CONFIG.city);
+  document.getElementById('contact-map').innerHTML = mapEmbedHTML('Charlotte NC');
 });
 </script>
 
