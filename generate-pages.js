@@ -283,7 +283,7 @@ pagesToRoot.forEach(([src, dest]) => {
 const homeTitle = 'A&W Fencing | Charlotte Area Fence & Gate Installation';
 const homeDescription = 'A&W Fencing installs residential, commercial, and agricultural fences and custom gates in Charlotte and surrounding North Carolina communities. Request a free estimate.';
 const homePath = path.join(__dirname, 'index.html');
-writeFile(homePath, seoHead(fs.readFileSync(homePath, 'utf8'), { path: '/', title: homeTitle, description: homeDescription, schema: businessSchema }));
+writeFile(homePath, seoHead(fs.readFileSync(homePath, 'utf8'), { path: '/', title: homeTitle, description: homeDescription, image: CONFIG.hero.heroImage, schema: businessSchema }));
 
 const sitemapPaths = ['/', '/about.html', '/contact.html', '/our-work.html', '/privacy-policy.html', '/terms.html',
   ...CONFIG.services.map(service => `/services/${service.slug}.html`),

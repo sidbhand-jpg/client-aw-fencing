@@ -137,7 +137,7 @@ const CONFIG = {
     subheadline: "Residential, commercial, and agricultural fences and custom gates planned for your property's layout and purpose.",
     ctaPrimary: "Get Free Estimate",
     ctaSecondary: "Explore Services",
-    heroImage: "/public/projects/shadowbox-fence-long-run.jpg",
+    heroImage: "/public/hero/clean-wood-privacy-fence.jpg",
   },
   services: [
     {
