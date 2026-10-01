@@ -10,6 +10,21 @@
 // HOUZFLOW-MANAGED-START
 const HOUZFLOW_PROJECTS = [
   {
+    "sourceAssetId": "98fd5ab3-4711-4b3a-9094-871c9e9f869a",
+    "title": "Aluminum fence enclosing a residential yard",
+    "category": "Project",
+    "img": "https://assets.houzflow.com/clients/walt-robertson/processed/15fa7124-da60-42ff-97cb-7aa303b110b3/74475944907__01512913-75BC-4132-8196-B7CF01871111.webp",
+    "alt": "Aluminum fence enclosing a residential yard",
+    "metaDescription": "Aluminum fence enclosing a residential yard",
+    "service": "",
+    "location": "",
+    "width": 2400,
+    "height": 2400,
+    "featured": true,
+    "publishedAt": "2026-10-01T12:53:41.691554+00:00",
+    "order": 0
+  },
+  {
     "sourceAssetId": "7ffd51e6-fe60-48ab-bddc-2df1ee89566f",
     "title": "White vinyl privacy fence enclosing a residential backyard.",
     "category": "Project",
@@ -21,7 +36,7 @@ const HOUZFLOW_PROJECTS = [
     "width": 2400,
     "height": 2400,
     "featured": true,
-    "publishedAt": "2026-10-01T12:39:59.068+00:00",
+    "publishedAt": "2026-10-01T12:56:51.246+00:00",
     "order": 0
   }
 ];
