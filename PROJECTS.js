@@ -8,7 +8,23 @@
 // Approved website photos are maintained by the Houzflow client app.
 // Keep the markers intact; the publisher replaces only this block.
 // HOUZFLOW-MANAGED-START
-const HOUZFLOW_PROJECTS = [];
+const HOUZFLOW_PROJECTS = [
+  {
+    "sourceAssetId": "7ffd51e6-fe60-48ab-bddc-2df1ee89566f",
+    "title": "White vinyl privacy fence enclosing a residential backyard.",
+    "category": "Project",
+    "img": "https://assets.houzflow.com/clients/walt-robertson/processed/9f9d860f-8f01-4fe9-9814-70d20edd7b85/74131281188__617AE345-53E3-4840-9440-55E95631E1AD.webp",
+    "alt": "White vinyl privacy fence enclosing a residential backyard with green grass.",
+    "metaDescription": "White vinyl privacy fence enclosing a residential backyard.",
+    "service": "Vinyl Fence",
+    "location": "Charlotte",
+    "width": 2400,
+    "height": 2400,
+    "featured": true,
+    "publishedAt": "2026-10-01T12:34:41.830611+00:00",
+    "order": 0
+  }
+];
 // HOUZFLOW-MANAGED-END
 
 const MANUAL_PROJECTS = [
