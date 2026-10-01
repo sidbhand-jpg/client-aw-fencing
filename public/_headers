@@ -16,5 +16,8 @@
 /CONFIG.js
   Cache-Control: public, max-age=0, must-revalidate
 
+/PROJECTS.js
+  Cache-Control: public, max-age=0, must-revalidate
+
 /components.js
   Cache-Control: public, max-age=0, must-revalidate

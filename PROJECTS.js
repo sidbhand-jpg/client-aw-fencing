@@ -5,7 +5,13 @@
 // client's 02_Source_Assets folder. Keep project gallery data
 // separate from CONFIG.js so new approved work can be added here.
 
-const PROJECTS = [
+// Approved website photos are maintained by the Houzflow client app.
+// Keep the markers intact; the publisher replaces only this block.
+// HOUZFLOW-MANAGED-START
+const HOUZFLOW_PROJECTS = [];
+// HOUZFLOW-MANAGED-END
+
+const MANUAL_PROJECTS = [
   {
     title: "Long-Run Shadowbox Fence",
     category: "Shadowbox Fence",
@@ -79,3 +85,6 @@ const PROJECTS = [
     featured: true,
   },
 ];
+
+// New approved photos appear first; retain the existing curated projects.
+const PROJECTS = [...HOUZFLOW_PROJECTS, ...MANUAL_PROJECTS];
