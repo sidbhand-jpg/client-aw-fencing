@@ -21,7 +21,7 @@ const HOUZFLOW_PROJECTS = [
     "width": 2400,
     "height": 2400,
     "featured": true,
-    "publishedAt": "2026-10-01T12:34:41.830611+00:00",
+    "publishedAt": "2026-10-01T12:39:59.068+00:00",
     "order": 0
   }
 ];
