@@ -42,13 +42,14 @@
       <h1 class="city-headline" id="city-headline"></h1>
       <p class="city-sub" id="city-sub"></p>
       <div class="city-service-pills" id="city-service-pills"></div>
+      <div class="cta-btns city-estimate-actions">
+        <a href="#chat-widget" class="btn-primary btn-lg" data-open-chat>Get Free Estimate</a>
+        <a href="#" class="btn-outline btn-lg" id="city-phone-link"><span id="city-phone-text"></span></a>
+      </div>
       <div class="city-rating">
         <div class="stars" id="city-stars"></div>
         <span class="city-rating-text" id="city-rating-text"></span>
       </div>
-    </div>
-    <div class="city-form-col">
-      <div id="city-lead-form"></div>
     </div>
   </div>
 </section>
@@ -116,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('city-service-pills').innerHTML = CONFIG.services.map(s => `
     <a href="../services/${s.slug}.html" class="city-service-pill">${s.name}</a>`).join('');
 
-  // Lead form
-  buildLeadForm('city-lead-form', { variant: 'card', showCity: true, showMessage: false });
+  document.getElementById('city-phone-link').href = `tel:${CONFIG.phoneRaw}`;
+  document.getElementById('city-phone-text').textContent = CONFIG.phone;
 
   // Why us section
   document.getElementById('city-why-header').innerHTML = sectionHeaderHTML({

@@ -67,10 +67,10 @@
       </div>
     </div>
 
-    <!-- Sticky form -->
+    <!-- Estimate actions -->
     <div class="service-form-col">
       <div class="service-form-sticky">
-        <div id="service-lead-form"></div>
+        <div id="service-estimate-actions"></div>
       </div>
     </div>
   </div>
@@ -129,8 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ${s.name}
     </a>`).join('');
 
-  // Lead form
-  buildLeadForm('service-lead-form', { variant: 'card', defaultService: service.slug, showMessage: true });
+  document.getElementById('service-estimate-actions').innerHTML = estimateCardHTML();
 
   // FAQs
   document.getElementById('service-faq-header').innerHTML = sectionHeaderHTML({
