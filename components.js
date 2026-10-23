@@ -434,8 +434,8 @@ function initChatWidget() {
     setTimeout(() => fab.classList.remove('chat-bounce'), 1100);
   }, 2000);
 
-  // Check if already submitted
-  if (localStorage.getItem('gcr_chat_submitted') === '1') {
+  // Only confirmed requests from this tab suppress a repeated submission.
+  if (sessionStorage.getItem('aw_chat_confirmed') === '1') {
     form.innerHTML = '<p class="text-center text-muted" style="padding:1rem">We already have your message. We\'ll be in touch shortly!</p>';
   }
 
@@ -474,25 +474,45 @@ function initChatWidget() {
     }
   });
 
+  let pendingSubmission;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (submitBtn.disabled) return;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
     chatError.style.display = 'none';
     const data = Object.fromEntries(new FormData(form).entries());
     const attribution = HouzflowAttribution.get();
+    const fingerprint = JSON.stringify(data);
+    if (!pendingSubmission || pendingSubmission.fingerprint !== fingerprint) {
+      pendingSubmission = {
+        fingerprint,
+        lead_event_id: 'evt_' + crypto.randomUUID().replaceAll('-', '_'),
+        submitted_at: new Date().toISOString(),
+      };
+    }
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
     try {
        if (!CONFIG.webhookUrl) throw new Error('Chat delivery is not configured');
-       await fetch(CONFIG.webhookUrl, {
+       const response = await fetch(CONFIG.webhookUrl, {
            method: 'POST',
            headers: { 'Content-Type': 'application/json' },
-           mode: 'no-cors',
-           body: JSON.stringify({ source: 'chat', ...data, ...attribution }),
+           signal: controller.signal,
+           body: JSON.stringify({
+             ...attribution, ...data,
+             project_type: CONFIG.services.find(service => service.slug === data.service)?.name || 'Other / Not sure',
+             lead_event_id: pendingSubmission.lead_event_id,
+             submitted_at: pendingSubmission.submitted_at,
+           }),
        });
+      const receipt = await response.json();
+      if (!response.ok || receipt.accepted !== true || receipt.test !== false
+          || receipt.event_id !== pendingSubmission.lead_event_id) throw new Error('Lead was not confirmed');
       if (typeof fbq !== 'undefined' && CONFIG.metaPixelId) {
-        fbq('track', 'Lead', {}, { eventID: attribution.lead_event_id });
+        fbq('track', 'Lead', {}, { eventID: pendingSubmission.lead_event_id });
       }
-      localStorage.setItem('gcr_chat_submitted', '1');
+      sessionStorage.setItem('aw_chat_confirmed', '1');
       chatBody.innerHTML = `
         <div class="chat-thanks">
           <div class="chat-thanks-emoji">🎉</div>
@@ -505,7 +525,7 @@ function initChatWidget() {
       chatError.style.display = 'block';
       submitBtn.disabled = false;
        submitBtn.textContent = 'Submit';
-    }
+    } finally { clearTimeout(timeout); }
   });
 }
 

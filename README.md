@@ -2,7 +2,17 @@
 
 ## A&W Fencing site status
 
-This client version uses the shared chat widget as its only estimate request form. The homepage, contact page, service pages, and city pages show **Get Free Estimate** and the phone number. Update `CONFIG.js` for verified business details and `city-content.js` for researched city guidance. The chat widget is configured with a Make webhook; a receiver-side delivery test is required before treating submissions as verified live.
+This client version uses the shared chat widget as its only estimate request form. The homepage, contact page, service pages, and city pages show **Get Free Estimate** and the phone number. Update `CONFIG.js` for verified business details and `city-content.js` for researched city guidance.
+
+The widget posts to the same-origin Pages Function `/api/chat-lead`, which forwards form-encoded fields to the existing **aw fencing website to houzflow leads** Make scenario (`6402142`, webhook `2857010`). Its flow is Webhook → Houzflow intake → confirmed response → Resend → Sheets → Slack. The website scenario uses the established A&W notification recipients and destinations; the quiz scenario (`6584903`) is separate and retains its original configuration. The client app uses its existing intake without code or database changes.
+
+Set `AW_MAKE_WEBHOOK_URL` and `AW_TEST_SIGNING_KEY` as Cloudflare Pages secrets in production and preview. Never put either value in public config. Real submissions use `lead_source: "A&W Fencing Website Chat"`, `funnel_variant: "website_chat_v1"`, and `sms_consent: "false"`. The function combines the selected service and project details into the app's existing `project_type` field so both appear in its project summary. Uncollected ZIP/material/property/timeline/budget fields stay blank. Attribution, event ID, and submission time are preserved.
+
+The widget requires a matching Houzflow acceptance receipt before displaying success; generic Make `Accepted` responses and errors remain failures. Retrying unchanged input reuses the event ID for deduplication. The old unverified `gcr_chat_submitted` local-storage flag is ignored.
+
+Validation on October 23, 2026: endpoint tests cover confirmed acceptance, duplicate receipts, unconfirmed responses, invalid input, cross-origin rejection, and signed test suppression. Mobile browser checks at 390px verified error/retry/success with intercepted requests. A signed production synthetic request completed the dedicated website scenario with three operations and returned `accepted: true, test: true`; unsigned/stripped test markers returned 403. Synthetic IDs produced zero lead or Meta outbox rows. The synthetic request is re-signed after normalization using variant `A` only to use the unchanged app's existing test protocol. Real lead persistence and Resend/Sheets/Slack delivery were not exercised. No real lead, message, call, or appointment was created.
+
+Run `node --test test/chat-lead.test.mjs` for endpoint regression coverage.
 
 Run `node build-site.js` to regenerate the pages, sitemap, robots file, and llms file and prepare the public-only `dist/` output. Run `node check-site.js` before publishing. The connected Cloudflare Pages project builds with `node build-site.js` and publishes `dist/` at `https://aw-fencing.com`. The company base remains Cherryville; Charlotte is the headline service market.
 

@@ -128,7 +128,7 @@ const CONFIG = {
   yearsExperience: 0,
   projectsCompleted: "",
   satisfactionRate: "",
-  webhookUrl: "https://hook.us2.make.com/bo7e27fc6zgfm0kt35rhxtxqs7o1udtm",
+  webhookUrl: "/api/chat-lead",
   metaPixelId: "",
   maps: { mapEmbedUrl: "", mapSearchQuery: "A&W Fencing Cherryville NC", mapHeight: 420 },
   hero: {
